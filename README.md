@@ -14,15 +14,35 @@ Each board has a corresponding **overlay** that defines the configuration for it
 
 <br>
 
+## Use tips
+
+### Fan controls
+We provide same script named fan.sh as [official one](https://docs.khadas.com/products/sbc/edge2/add-ons/cooling-fan).
+
+
+### Device overlays
+Instead of `/boot/dtb/rockchip/rk3588s-khadas-edge2.dtb.overlay.env`, openfyde uses Env.txt under `/mnt/stateful_partition/fyde/`.
+
+For details, please refer to the [FAQ](https://fydeos.io/docs/knowledge-base/recipes/RK3588-soc-how-to-use-device-tree-overlay/).
+
+Take [TS050 Touchscreen](https://docs.khadas.com/products/sbc/edge2/add-ons/ts050-touchscreen) as sample, you need add `mipi-panel` to node `overlays=` not `fdt_overlays`.
+
+```
+cat /mnt/stateful_partition/fyde/Env.txt
+overlays=mipi-panel
+```
+<br>
+
 ## About this repository
 This repository is the overlay for the `edge2-openfyde` board, it's part of the openFyde open-source project.
 
 This repository contains the following packages:
 
 
-| Packages                   | Description        | Reference |
-|----------------------------|--------------------|-----------|
-| chromeos-base/device-appid | Setup device appid |           |
+| Packages                   | Description        | Reference                                                                              |
+|----------------------------|--------------------|----------------------------------------------------------------------------------------|
+| chromeos-base/device-appid | Setup device appid |                                                                                        |
+| metadata/layout.conf       | inheritance        | [overlay-edge2-openfyde-base](https://github.com/openFyde/overlay-edge2-openfyde-base) |
 
 <br>
 
