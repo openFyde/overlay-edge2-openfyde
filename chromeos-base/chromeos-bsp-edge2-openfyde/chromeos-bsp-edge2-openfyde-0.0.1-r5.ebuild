@@ -1,0 +1,1 @@
+chromeos-bsp-edge2-openfyde-0.0.1.ebuild
