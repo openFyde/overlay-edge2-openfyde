@@ -12,8 +12,9 @@ KEYWORDS="*"
 IUSE=""
 
 RDEPEND="
-    virtual/openfyde-board-spec
-    virtual/rk3588-ai
+	chromeos-base/chromeos-bsp-inaugural
+  chromeos-base/chromeos-bsp-inaugural-openfyde
+  chromeos-base/chromeos-bsp-edge2-openfyde-base
 "
 
 DEPEND="${RDEPEND}"
