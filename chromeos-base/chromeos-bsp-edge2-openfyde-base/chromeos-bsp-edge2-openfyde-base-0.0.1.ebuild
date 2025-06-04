@@ -20,6 +20,7 @@ RDEPEND="
     sys-boot/edge2-loaders
     chromeos-base/os_install_service
     chromeos-base/fake-camera-config
+    chromeos-base/chromeos-bsp-inaugural
 "
 
 DEPEND="${RDEPEND}"
@@ -30,11 +31,16 @@ src_install() {
     #brcm bluetooth
     dosym "/lib/firmware" "/etc/firmware"
     insinto "/etc/init"
-    doins *.conf
+    doins *.override
+    doins khadas-bluetooth.conf
 
    exeinto "/usr/sbin"
    doexe scripts/*
 
    insinto /lib/udev/rules.d
    doins udev/*
+
+   insinto /usr/share/alsa/ucm
+   doins -r rockchip,es8316-codec
+   doins -r rk-es8316-spk-sound
 }
